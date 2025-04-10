@@ -169,7 +169,7 @@ nav ul li a:hover::after {
 /* About Section */
 .about {
     padding: 80px 0;
-    background-color: var(--off-white);
+    background-color: var(--light-gray);
 }
 
 .about p {
@@ -180,7 +180,7 @@ nav ul li a:hover::after {
 /* Features Section */
 .features {
     padding: 80px 0;
-    background-color: var(--light-gray);
+    background-color: var(--off-white);
 }
 
 .section-title {

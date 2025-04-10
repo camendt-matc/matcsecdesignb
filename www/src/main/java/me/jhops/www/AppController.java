@@ -11,9 +11,9 @@ public class AppController {
 		return "index";
 	}
 
-	@GetMapping("/skills-and-experience/devops")
-	public String devops() {
-		return "devops";
+	@GetMapping("/skills")
+	public String skills() {
+		return "skills";
 	}
 
 }
