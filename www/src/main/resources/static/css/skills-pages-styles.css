@@ -140,18 +140,18 @@ nav ul li a:hover::after {
 
 /* Development */
 
-.development {
+.skills-catalog {
     padding: 80px 0;
     background-color: var(--off-white);
     text-align: left;
 }
 
-.development h2 {
+.skills-catalog h2 {
     padding-top: 60px;
     color: var(--primary-blue);
 }
 
-.development h3 {
+.skills-catalog h3 {
     padding-top: 10px;
     font-weight: bold;
 }
