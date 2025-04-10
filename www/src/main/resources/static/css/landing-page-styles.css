@@ -2,9 +2,9 @@
     --primary-blue: #3772FF;
     --secondary-blue: #92DCE5;
     --dark-gray: #2B303A;
-    --light-gray: #EEE5E9;
-    --off-white: #EEE5E9;
-    --accent-orange: #F26430;
+    --light-gray: #e4e4e4;
+    --off-white: #f1f1f1;
+    --accent-green: #30f2c1;
 }
 
 * {
@@ -100,7 +100,7 @@ nav ul li a:hover::after {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgb(4, 65, 170), var(--primary-blue));
+    background: linear-gradient(rgb(41, 4, 145), var(--primary-blue));
     background-size: cover;
     background-position: center;
     color: var(--off-white);
@@ -135,19 +135,19 @@ nav ul li a:hover::after {
 
 .btn2 {
     display: inline-block;
-    background-color: var(--accent-orange);
+    background-color: var(--accent-green);
     color: var(--dark-gray);
     padding: 12px 30px;
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
-    border: 2px solid var(--accent-orange);
+    border: 2px solid var(--accent-green);
 }
 
 .btn2:hover {
     background-color: transparent;
-    color: var(--accent-orange)
+    color: var(--accent-green)
 }
 
 .btn:hover {
@@ -157,19 +157,19 @@ nav ul li a:hover::after {
 
 .btn-outline {
     background-color: transparent;
-    border: 2px solid var(--accent-orange);
+    border: 2px solid var(--accent-green);
     margin-left: 15px;
 }
 
 .btn-outline:hover {
-    background-color: var(--accent-orange);
+    background-color: var(--accent-green);
     color: var(--primary-blue);
 }
 
 /* About Section */
 .about {
     padding: 80px 0;
-    background-color: var(--light-gray);
+    background-color: var(--off-white);
 }
 
 .about p {
