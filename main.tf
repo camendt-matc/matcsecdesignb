@@ -61,8 +61,6 @@ data "aws_ami_ids" "ami"{
     owners = ["amazon"]
 }
 
-# TODO Provision an EIP and attach it to the web server.
-
 # Create web server
 module "ec2_instance" {
     source  = "terraform-aws-modules/ec2-instance/aws"
@@ -79,6 +77,11 @@ module "ec2_instance" {
             file_content = ""
         }
     )
+}
+
+resource "aws_eip" "eip" {
+  instance = module.ec2_instance.id
+  domain   = "vpc"
 }
 
 # TODO Provision the ECS containers on the web server and do all the yada yada with that.
