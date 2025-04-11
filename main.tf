@@ -7,6 +7,13 @@ terraform {
         }
     }
 
+    backend "s3" {
+        bucket = "jhopwood-terraform-state"
+        key = "terraform.tfstate"
+        region = "us-east-1"
+        encrypt = true
+    }
+
     required_version = ">= 0.14.9"
 }
 
@@ -68,7 +75,7 @@ module "ec2_instance" {
     name = "web-server"
 
     instance_type          = "t2.micro"
-    vpc_security_group_ids = [module.web_server_sg.security_group_id]
+    vpc_security_group_ids = [module.sg.security_group_id]
     subnet_id              = module.vpc.public_subnets[0]
     ami                    = data.aws_ami_ids.ami.ids[0]
 
