@@ -52,14 +52,14 @@ jobs:
         with:
           context: ./www
           push: true
-          tags: user/www-server-image:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/www-server-image:latest
 
       - name: Build and push api-server-iamge
         uses: docker/build-push-action@v6
         with:
           context: ./api
           push: true
-          tags: user/api-server-image:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/api-server-image:latest
 
 
         
