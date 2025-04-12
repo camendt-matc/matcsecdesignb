@@ -51,25 +51,76 @@ module "sg" {
   description = "Security group for the web server to allow HTTPS/HTTP traffic"
   vpc_id      = module.vpc.vpc_id
 
-  ingress_cidr_blocks = [
-    "173.245.48.0/20", # Cloudflare Proxy IPS Only
-    "103.21.244.0/22", # https://www.cloudflare.com/ips-v4/#
-    "103.22.200.0/22",
-    "103.31.4.0/22",
-    "141.101.64.0/18",
-    "108.162.192.0/18",
-    "190.93.240.0/20",
-    "188.114.96.0/20",
-    "197.234.240.0/22",
-    "198.41.128.0/17",
-    "162.158.0.0/15",
-    "104.16.0.0/13",
-    "104.24.0.0/14",
-    "172.64.0.0/13",
-    "131.0.72.0/22",
-    "18.206.107.24/29" # us-east-1 EC2_INSTANCE_CONNECT https://ip-ranges.amazonaws.com/ip-ranges.json
+  ingress_with_cidr_blocks = [
+    # Cloudflare Proxy IPS Only
+    # https://www.cloudflare.com/ips-v4/#
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "173.245.48.0/20"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "103.21.244.0/22"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "103.22.200.0/22"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "103.31.4.0/22"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "141.101.64.0/18"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "108.162.192.0/18"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "190.93.240.0/20"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "188.114.96.0/20"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "197.234.240.0/22"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "198.41.128.0/17"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "162.158.0.0/15"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "104.16.0.0/13"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "104.24.0.0/14"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "172.64.0.0/13"
+    },
+    {
+      rule = "http-80-tcp"
+      cidr_blocks = "131.0.72.0/22"
+    },
+
+    # us-east-1 EC2_INSTANCE_CONNECT https://ip-ranges.amazonaws.com/ip-ranges.json
+    {
+      rule = "ssh-tcp" 
+      cidr_blocks = "18.206.107.24/29"
+    },
   ]
-  ingress_rules       = ["https-443-tcp", "http-80-tcp", "ssh-tcp"]
 
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules = ["all-all"]
