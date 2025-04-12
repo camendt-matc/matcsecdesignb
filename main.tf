@@ -69,6 +69,7 @@ module "ec2_instance" {
   vpc_security_group_ids = [module.sg.security_group_id]
   subnet_id              = module.vpc.public_subnets[0]
   ami                    = "ami-00a929b66ed6e0de6" # Amazon Linux 2023 AMI 2023.7.20250331.0 x86_64 HVM kernel-6.1
+  cpu_credits            = "standard"
 
   user_data = templatefile(
     "${path.module}/init-script.sh", {
