@@ -11,8 +11,10 @@ curl -SL https://github.com/docker/compose/releases/download/v2.35.0/docker-comp
 chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 # Download production files from S3
-aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml docker-compose.yaml
-aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf nginx.conf
+aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml /home/ec2-user/docker-compose.yaml
+aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf /home/ec2-user/nginx.conf
+
+cd /home/ec2-user
 
 # Update domain in NGINX config from localhost to production domain
 sed -i 's/localhost/jhops\.me/g' nginx.conf # change from the dev to production domain name.
