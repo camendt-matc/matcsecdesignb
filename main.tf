@@ -52,8 +52,8 @@ module "sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  ingress_rules       = ["https-443-tcp", "http-80-tcp"]
-  
+  ingress_rules       = ["https-443-tcp", "http-80-tcp", "ssh-tcp"]
+
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules = ["all-all"]
 
@@ -68,7 +68,7 @@ module "ec2_instance" {
   instance_type          = "t3.micro"
   vpc_security_group_ids = [module.sg.security_group_id]
   subnet_id              = module.vpc.public_subnets[0]
-  ami                    = "ami-0a2beeba6d1093556" # Amazon Linux AMI 2.0.20250408 x86_64 ECS HVM GP2 
+  ami                    = "ami-00a929b66ed6e0de6" # Amazon Linux 2023 AMI 2023.7.20250331.0 x86_64 HVM kernel-6.1
 
   user_data = templatefile(
     "${path.module}/init-script.sh", {
