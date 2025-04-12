@@ -25,5 +25,10 @@ sed -i 's/build: \.\/api/image: jhops881\/api-server-image:latest/g' docker-comp
 # Turn on the Docker service
 systemctl enable --now docker
 
+until docker info >/dev/null 2>&1; do
+  echo "Waiting for Docker to start..."
+  sleep 2
+done
+
 # Start the web servers
 docker compose up -d
