@@ -22,4 +22,8 @@ sed -i 's/localhost/jhops\.me/g' nginx.conf # change from the dev to production 
 sed -i 's/build: \.\/www/image: jhops881\/www-server-image:latest/g' docker-compose.yaml
 sed -i 's/build: \.\/api/image: jhops881\/api-server-image:latest/g' docker-compose.yaml
 
+# Turn on the Docker service
+systemctl enable --now docker
+
+# Start the web servers
 docker compose up -d
