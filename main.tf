@@ -59,6 +59,37 @@ module "sg" {
 
 }
 
+resource "aws_iam_role" "ec2_s3_role" {
+  name = "ec2_s3_role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+
+  tags = {
+    tag-key = "tag-value"
+  }
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_s3_access" {
+  role       = aws_iam_role.ec2_s3_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess" # Or use a custom policy
+}
+
+resource "aws_iam_instance_profile" "ec2_instance_profile" {
+  name = "ec2_s3_instance_profile"
+  role = aws_iam_role.ec2_s3_role.name
+}
+
 # Create web server
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
@@ -70,12 +101,9 @@ module "ec2_instance" {
   subnet_id              = module.vpc.public_subnets[0]
   ami                    = "ami-00a929b66ed6e0de6" # Amazon Linux 2023 AMI 2023.7.20250331.0 x86_64 HVM kernel-6.1
   cpu_credits            = "standard"
+  iam_instance_profile   = aws_iam_instance_profile.ec2_instance_profile.name
 
-  user_data = templatefile(
-    "${path.module}/init-script.sh", {
-      file_content = ""
-    }
-  )
+  user_data              = file("${path.module}/init-script.sh")
 }
 
 resource "aws_eip" "eip" {
