@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e # Exit immediately if any command fails
 
 # Update
 yum update -y
@@ -18,6 +17,6 @@ sed -i 's/build: \.\/api/image: jhops881\/api-server-image:latest/g' docker-comp
 
 # Install Docker and Docker Compose
 yum install -y docker
-sudo yum install -y docker-compose-plugin
+yum install -y docker-compose-plugin
 
 docker compose up -d
