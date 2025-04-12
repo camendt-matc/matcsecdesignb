@@ -54,7 +54,7 @@ jobs:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/www-server-image:latest
 
-      - name: Build and push api-server-iamge
+      - name: Build and push api-server-image
         uses: docker/build-push-action@v6
         with:
           context: ./api
@@ -74,9 +74,36 @@ jobs:
       - name: Upload NGINX config to Amazon S3
         run: aws s3 cp ./nginx.conf s3://jhops881-web-server-files/nginx.conf
 
-  # Deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init -input=false
+
+      - name: Terraform Validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        run: terraform plan -no-color -out=tfplan -input=false
+        continue-on-error: false
+
+      - name: Terraform Apply | Deploy Production Infrastructure
+        run: terraform apply -input=false tfplan
+
 
 
 
