@@ -1,29 +1,19 @@
 services:
-  www-server-a:
+  www-server:
     build: ./www
     restart: always
 
-  www-server-b:
-    build: ./www
-    restart: always
-
-  api-server-a:
-    build: ./api
-    restart: always
-
-  api-server-b:
+  api-server:
     build: ./api
     restart: always
 
   reverse-proxy:
     image: nginx:stable
-    volumes: 
+    volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 80:80
     depends_on:
-      - www-server-a
-      - www-server-b
-      - api-server-a
-      - api-server-b
+      - www-server
+      - api-server
     restart: always
