@@ -89,21 +89,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-        # This is in efficient to delete and re-create. In the future,
-        # We will switched to automated configuration management -
-        # stepping away from the user-data.. and running it ourselves
-        # with each release pipeline. 
-      - name: Delete the previous server
-        run: |
-          INSTANCE_ID=$(aws ec2 describe-instances \
-          --filters "Name=instance-state-name,Values=running" \
-          --query "Reservations[*].Instances[*].InstanceId" \
-          --output text)
-
-          aws ec2 terminate-instances --instance-ids $INSTANCE_ID
-
-          aws ec2 wait instance-terminated --instance-ids $INSTANCE_ID
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
@@ -120,10 +105,30 @@ jobs:
       - name: Terraform Apply | Deploy Production Infrastructure
         run: terraform apply -input=false tfplan
 
+      - name: Configure/Update Web Server
+        run: |
+          INSTANCE_ID=$(aws ec2 describe-instances \
+          --filters "Name=instance-state-name,Values=running" \
+          --query "Reservations[*].Instances[*].InstanceId" \
+          --output text)
 
+          aws ec2-instance-connect ssh --instance-id $INSTANCE_ID
 
+          cd /home/ec2-user
 
+          docker compose down
 
-        
-      
+          # Download production files from S3
+          aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml /home/ec2-user/docker-compose.yaml
+          aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf /home/ec2-user/nginx.conf
 
+          # Update domain in NGINX config from localhost to production domain
+          sed -i 's/localhost/jhops\.me/g' nginx.conf # change from the dev to production domain name.
+
+          # Exchange local dev builds for the production images
+          # 'build: ./<>'  ->  'image: jhops881/<>-server-image:latest'
+          sed -i 's/build: \.\/www/image: jhops881\/www-server-image:latest/g' docker-compose.yaml
+          sed -i 's/build: \.\/api/image: jhops881\/api-server-image:latest/g' docker-compose.yaml
+
+          # Start the web servers
+          docker compose up -d
