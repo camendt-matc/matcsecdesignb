@@ -127,7 +127,7 @@ jobs:
           # Add the rule to permit runner connection
           SGR_ID=$(aws ec2 authorize-security-group-ingress \
           --group-id $SG_ID \
-          --protocol tcp --port 22 --cidr $RUNNER_IP/32
+          --protocol tcp --port 22 --cidr $RUNNER_IP/32 \
           --query "SecurityGroupRules[0].SecurityGroupRuleId" \
           --output text)
 
