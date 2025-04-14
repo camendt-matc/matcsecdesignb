@@ -105,61 +105,37 @@ jobs:
       - name: Terraform Apply | Deploy Production Infrastructure
         run: terraform apply -input=false tfplan
 
-      - name: Configure/Update Web Server
+      - name: Configure/Update Web Server via SSM
         run: |
           # Get the web server instance ID
           INSTANCE_ID=$(aws ec2 describe-instances \
-          --filters "Name=instance-state-name,Values=running" \
-          --query "Reservations[*].Instances[*].InstanceId" \
-          --output text)
+            --filters "Name=instance-state-name,Values=running" \
+            --query "Reservations[*].Instances[*].InstanceId" \
+            --output text)
 
-          # Need to temporarily add the IP of the runner to the SG to allow SSH
+          # Run SSM command
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids "$INSTANCE_ID" \
+            --document-name "AWS-RunShellScript" \
+            --comment "Deploy web stack" \
+            --parameters 'commands=[
+              "sudo docker compose down",
+              "aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml docker-compose.yaml",
+              "aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf nginx.conf",
+              "sed -i \"s/localhost/jhops.me/g\" nginx.conf",
+              "sed -i \"s|build: ./www|image: jhops881/www-server-image:latest|g\" docker-compose.yaml",
+              "sed -i \"s|build: ./api|image: jhops881/api-server-image:latest|g\" docker-compose.yaml",
+              "docker compose up -d"
+            ]' \
+            --output text \
+            --query "Command.CommandId")
 
-          # Get the Public IP of the runner
-          RUNNER_IP=$(curl https://checkip.amazonaws.com)
+          echo "SSM Command ID: $COMMAND_ID"
 
-          # Get the SG of the web server
-          SG_ID=$(aws ec2 describe-instances \
-          --instance-ids $INSTANCE_ID \
-          --query "Reservations[*].Instances[*].SecurityGroups[*].[GroupId]" \
-          --output text)
+          # Wait for command to finish
+          aws ssm wait command-executed \
+            --instance-id "$INSTANCE_ID" \
+            --command-id "$COMMAND_ID"
 
-          # Add the rule to permit runner connection
-          SGR_ID=$(aws ec2 authorize-security-group-ingress \
-          --group-id $SG_ID \
-          --protocol tcp --port 22 --cidr $RUNNER_IP/32 \
-          --query "SecurityGroupRules[0].SecurityGroupRuleId" \
-          --output text)
+          echo "✅ Web stack updated successfully."
 
-          # Retry SSH connection every 60 seconds until it works
-          echo "Trying to connect to instance: $INSTANCE_ID"
-          until aws ec2-instance-connect ssh --instance-id "$INSTANCE_ID"; do
-            echo "Connection failed. Retrying in 60 seconds..."
-            sleep 60
-          done
-
-          echo "SSH connected successfully."
-
-          cd /home/ec2-user
-
-          docker compose down
-
-          # Download production files from S3
-          aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml /home/ec2-user/docker-compose.yaml
-          aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf /home/ec2-user/nginx.conf
-
-          # Update domain in NGINX config from localhost to production domain
-          sed -i 's/localhost/jhops\.me/g' nginx.conf # change from the dev to production domain name.
-
-          # Exchange local dev builds for the production images
-          sed -i 's|build: \./www|image: jhops881/www-server-image:latest|g' docker-compose.yaml
-          sed -i 's|build: \./api|image: jhops881/api-server-image:latest|g' docker-compose.yaml
-
-          # Start the web servers
-          docker compose up -d
-
-          exit
-
-          aws ec2 revoke-security-group-ingress \
-          --group-id $SG_ID \
-          --security-group-rule-ids $SGR_ID
