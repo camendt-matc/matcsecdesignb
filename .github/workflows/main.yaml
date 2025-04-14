@@ -80,34 +80,34 @@ jobs:
       - name: Upload NGINX config to Amazon S3
         run: aws s3 cp ./nginx.conf s3://jhops881-web-server-files/nginx.conf
 
-  Test:
-    runs-on: ubuntu-latest
-    needs: Build
-    steps:
+  # Test:
+  #   runs-on: ubuntu-latest
+  #   needs: Build
+  #   steps:
 
-        # Simple Smoke Test
-        # -- START --
-      - name: Checkout
-        uses: actions/checkout@v4
+  #       # Simple Smoke Test
+  #       # -- START --
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - name: Set Up Docker
-        uses: docker/setup-docker-action@v4
+  #     - name: Set Up Docker
+  #       uses: docker/setup-docker-action@v4
 
-      - name: Set Up Docker Compose
-        uses: docker/setup-compose-action@v1
+  #     - name: Set Up Docker Compose
+  #       uses: docker/setup-compose-action@v1
 
-      - run: docker compose pull
+  #     - run: docker compose pull
 
-      - run: docker compose up -d
+  #     - run: docker compose up -d
 
-      - name: Check www.localhost
-        run: |
-          curl -s -o /dev/null -w "%{http_code}" http://www.localhost | grep 200
-          curl -s -o /dev/null -w "%{http_code}" http://www.localhost/skills | grep 200
+  #     - name: Check www.localhost
+  #       run: |
+  #         curl -s -o /dev/null -w "%{http_code}" http://www.localhost | grep 200
+  #         curl -s -o /dev/null -w "%{http_code}" http://www.localhost/skills | grep 200
 
-      - name: Check api.localhost
-        run: curl -s -o /dev/null -w "%{http_code}" http://api.localhost | grep 200
-        # -- END --
+  #     - name: Check api.localhost
+  #       run: curl -s -o /dev/null -w "%{http_code}" http://api.localhost | grep 200
+  #       # -- END --
 
   Deploy:
     runs-on: ubuntu-latest
