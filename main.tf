@@ -127,8 +127,8 @@ module "sg" {
 
 }
 
-resource "aws_iam_role" "ec2_s3_role" {
-  name = "ec2_s3_role"
+resource "aws_iam_role" "ec2_role" {
+  name = "ec2_combined_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -144,18 +144,23 @@ resource "aws_iam_role" "ec2_s3_role" {
   })
 
   tags = {
-    tag-key = "tag-value"
+    env = "prod"
   }
 }
 
 resource "aws_iam_role_policy_attachment" "ec2_s3_access" {
-  role       = aws_iam_role.ec2_s3_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess" # Or use a custom policy
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_ssm_access" {
+  role       = aws_iam_role.ec2_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
-  name = "ec2_s3_instance_profile"
-  role = aws_iam_role.ec2_s3_role.name
+  name = "ec2_combined_instance_profile"
+  role = aws_iam_role.ec2_role.name
 }
 
 # Create web server
