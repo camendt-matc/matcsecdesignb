@@ -24,6 +24,12 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '21'
+          cache: 'gradle'
+          cache-dependency-path: |
+            www/**/*.gradle*
+            www/**/gradle-wrapper.properties
+            api/**/*.gradle*
+            api/**/gradle-wrapper.properties
 
       - name: Make gradlew executable
         run: |
