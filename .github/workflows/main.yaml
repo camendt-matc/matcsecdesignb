@@ -109,8 +109,6 @@ jobs:
         run: curl -s -o /dev/null -w "%{http_code}" http://api.localhost | grep 200
         # -- END --
 
-
-
   Deploy:
     runs-on: ubuntu-latest
     needs: Test
