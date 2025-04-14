@@ -129,9 +129,13 @@ jobs:
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "$INSTANCE_ID" \
             --document-name "AWS-RunShellScript" \
-            --comment "Deploy web stack" \
+            --comment "Deploy web stack as ec2-user" \
             --parameters 'commands=[
-              "sudo docker compose down",
+              "sudo su",
+              "cd /home/ec2-user",
+              "docker compose down --remove-orphans",
+              "sudo docker container prune -f",
+              "sudo docker network prune -f",
               "aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml docker-compose.yaml",
               "aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf nginx.conf",
               "sed -i \"s/localhost/jhops.me/g\" nginx.conf",
