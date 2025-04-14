@@ -147,7 +147,7 @@ jobs:
               "sed -i \"s/localhost/jhops.me/g\" nginx.conf",
               "sed -i \"s|build: ./www|image: jhops881/www-server-image:latest|g\" docker-compose.yaml",
               "sed -i \"s|build: ./api|image: jhops881/api-server-image:latest|g\" docker-compose.yaml",
-              "docker compose pull"
+              "docker compose pull",
               "docker compose up -d"
             ]' \
             --output text \
