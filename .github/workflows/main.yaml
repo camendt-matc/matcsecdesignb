@@ -113,6 +113,18 @@ jobs:
             --query "Reservations[*].Instances[*].InstanceId" \
             --output text)
 
+          aws ec2 wait instance-status-ok --instance-ids $INSTANCE_ID
+
+          # Reboot the EC2 instance
+          aws ec2 reboot-instances --instance-ids $INSTANCE_ID
+
+          # Wait for the instance to return to the "running" state after reboot
+          aws ec2 wait instance-running --instance-ids $INSTANCE_ID
+
+          aws ec2 wait instance-status-ok --instance-ids $INSTANCE_ID
+
+          echo "Instance is back up and running."
+
           # Run SSM command
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "$INSTANCE_ID" \
