@@ -107,9 +107,28 @@ jobs:
 
       - name: Configure/Update Web Server
         run: |
+          # Get the web server instance ID
           INSTANCE_ID=$(aws ec2 describe-instances \
           --filters "Name=instance-state-name,Values=running" \
           --query "Reservations[*].Instances[*].InstanceId" \
+          --output text)
+
+          # Need to temporarily add the IP of the runner to the SG to allow SSH
+
+          # Get the Public IP of the runner
+          RUNNER_IP=$(curl https://checkip.amazonaws.com)
+
+          # Get the SG of the web server
+          SG_ID=$(aws ec2 describe-instances \
+          --instance-ids $INSTANCE_ID \
+          --query "Reservations[*].Instances[*].SecurityGroups[*].[GroupId]" \
+          --output text)
+
+          # Add the rule to permit runner connection
+          SGR_ID=$(aws ec2 authorize-security-group-ingress \
+          --group-id $SG_ID \
+          --protocol tcp --port 22 --cidr $RUNNER_IP/32
+          --query "SecurityGroupRules[0].SecurityGroupRuleId" \
           --output text)
 
           # Retry SSH connection every 60 seconds until it works
@@ -138,3 +157,9 @@ jobs:
 
           # Start the web servers
           docker compose up -d
+
+          exit
+
+          aws ec2 revoke-security-group-ingress \
+          --group-id $SG_ID \
+          --security-group-rule-ids $SGR_ID
