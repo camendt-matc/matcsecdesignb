@@ -1,0 +1,10 @@
+
+.about {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.about p {
+    text-align: justify;
+    text-justify: inter-word;
+}
