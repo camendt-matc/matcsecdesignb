@@ -42,6 +42,8 @@ jobs:
           context: ./www
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/www-server-image:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   Build-API-App:
     runs-on: ubuntu-latest
@@ -82,6 +84,9 @@ jobs:
           context: ./api
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/api-server-image:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
 
   Publish-App-Config-Artifacts:
     runs-on: ubuntu-latest
@@ -96,6 +101,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+
+      - name: Modify Configs for Production
+        run: | 
+          sed -i \"s/localhost/jhops.me/g\" nginx.conf
+          sed -i \"s|:dev|:latest|g\" docker-compose.yam
 
       - name: Upload Docker Compose Template to Amazon S3
         run: aws s3 cp ./docker-compose.yaml s3://jhops881-web-server-files/docker-compose.yaml
@@ -155,16 +165,6 @@ jobs:
 
           aws ec2 wait instance-status-ok --instance-ids $INSTANCE_ID
 
-          # Reboot the EC2 instance
-          aws ec2 reboot-instances --instance-ids $INSTANCE_ID
-
-          # Wait for the instance to return to the "running" state after reboot
-          aws ec2 wait instance-running --instance-ids $INSTANCE_ID
-
-          aws ec2 wait instance-status-ok --instance-ids $INSTANCE_ID
-
-          echo "Instance is back up and running."
-
           # Run SSM command
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "$INSTANCE_ID" \
@@ -178,8 +178,6 @@ jobs:
               "sudo docker network prune -f",
               "aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml docker-compose.yaml",
               "aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf nginx.conf",
-              "sed -i \"s/localhost/jhops.me/g\" nginx.conf",
-              "sed -i \"s|:dev|:latest|g\" docker-compose.yaml",
               "docker compose pull",
               "docker compose up -d"
             ]' \
