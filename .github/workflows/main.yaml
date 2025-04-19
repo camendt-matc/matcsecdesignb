@@ -1,6 +1,9 @@
 name: Main Pipeline
 run-name: ${{ github.ref }} Release Pipeline 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   
   Build-Webpages-App:
