@@ -1,8 +1,12 @@
 'use client';
 
+import Image from 'next/image'
 import Link from 'next/link';
 
+import {Tooltip} from "@heroui/tooltip";
+
 export default function ExpertisePage() {
+
     return (
         <main className="min-h-screen bg-gradient-to-br from-white to-gray-100 text-gray-900">
             {/* Hero Section */}
@@ -33,9 +37,29 @@ export default function ExpertisePage() {
                                 Proficient with key services such as EC2, S3, VPC, IAM, CloudWatch, Lambda, and CloudFormation.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -46,7 +70,7 @@ export default function ExpertisePage() {
                                 Most experienced with Virtual Machines, Virtual Networks, Blob Storage, App Services, and DevOps.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 4/5
                                 </span>
                             </div>
@@ -58,7 +82,7 @@ export default function ExpertisePage() {
                                 Experienced in deploying microservices architectures that scale efficiently with services such as AWS ECS. Familiar with microservices design patterns and inter-service communication interfaces.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-blue-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 2/5
                                 </span>
                             </div>
@@ -70,7 +94,7 @@ export default function ExpertisePage() {
                                 Knowledgeable and experienced in architecting highly available and fault-tolerant cloud infrastructures, ensuring minimal downtime and disaster recovery readiness using multi-zone deployments.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -82,7 +106,7 @@ export default function ExpertisePage() {
                                 Experienced in optimizing cloud resource usage and cost management using best practices, including auto-scaling, reserved instances, and right-sizing resources to achieve cost savings without sacrificing performance.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -94,7 +118,7 @@ export default function ExpertisePage() {
                                 Proficient in securing cloud environments using industry-standard security practices, including IAM, encryption at rest and in transit, and network segmentation.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -118,9 +142,29 @@ export default function ExpertisePage() {
                                 scripting with AWS Lambda. Deep understanding of the language and appreciation for best practices.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -130,7 +174,7 @@ export default function ExpertisePage() {
                                 Experienced in automating builds, tests, and deployments using tools like Jenkins, Azure DevOps, and GitHub Actions to ensure fast, reliable, and repeatable deployments.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 4/5
                                 </span>
                             </div>
@@ -142,7 +186,7 @@ export default function ExpertisePage() {
                                 Experienced in containerizing applications, managing Docker containers, and orchestrating with Docker Compose or AWS ECS for scalability and efficient resource utilization.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 4/5
                                 </span>
                             </div>
@@ -154,7 +198,7 @@ export default function ExpertisePage() {
                                 Proficient in using Terraform to define and provision cloud infrastructure in a consistent and automated manner, ensuring reproducibility across environments.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -166,7 +210,7 @@ export default function ExpertisePage() {
                                 Basic-level experience with Ansible for automating configuration management, ensuring consistency across multiple systems and environments.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 1/5
                                 </span>
                             </div>
@@ -178,7 +222,7 @@ export default function ExpertisePage() {
                                 Experienced in setting up and managing Jenkins for continuous integration and continuous delivery, automating the build-test-deploy lifecycle.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -191,7 +235,7 @@ export default function ExpertisePage() {
                                 taking full advantage of its wide ecosystem and first-class support for concurrency.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 4/5
                                 </span>
                             </div>
@@ -204,9 +248,29 @@ export default function ExpertisePage() {
                                 deployments, build scripts, and configuration.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -217,9 +281,29 @@ export default function ExpertisePage() {
                             Extensive experience with shell scripting, package management, and system monitoring.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -239,9 +323,29 @@ export default function ExpertisePage() {
                                 Proficient in version control using Git, including branch management, merges, and pull requests, with deep experience using GitHub for collaborative development.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -252,7 +356,7 @@ export default function ExpertisePage() {
                                 engineless game development experience with OpenGL.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -265,7 +369,7 @@ export default function ExpertisePage() {
                                 with exposure to functional programming and entity-component-systems.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 4/5
                                 </span>
                             </div>
@@ -277,7 +381,7 @@ export default function ExpertisePage() {
                                 Experienced with SQL for relational database design and querying with MySQL.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 3/5
                                 </span>
                             </div>
@@ -290,7 +394,7 @@ export default function ExpertisePage() {
                                 (with Spring Boot). Picks up easily due to firm understanding of OOP principles.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-blue-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 2/5
                                 </span>
                             </div>
@@ -303,9 +407,29 @@ export default function ExpertisePage() {
                                 understanding of the language and appreciation for best practices. 
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -315,9 +439,29 @@ export default function ExpertisePage() {
                                 Strong grasp of OOP principles such as inheritance, polymorphism, encapsulation, and abstraction, with experience applying them in multiple languages (Java, C++, Python).
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 5/5
                                 </span>
+                                <Tooltip
+                                    content={
+                                        <div className="px-1 py-2">
+                                            <div className="text-small font-bold">Relative Strengh Rating</div>
+                                            <div className="text-tiny">
+                                                This rating represents my level of proficiency and<br />
+                                                comfort with the skill when comparing it to others.
+                                            </div>
+                                        </div>
+                                    }
+                                placement='bottom' classNames={{ content: 'bg-gray-200 text-gray-700 rounded-md px-3 py-2' }}>
+                                    <span className='inline-flex items-center align-middle'>
+                                        <Image
+                                            src="/question-circle.svg"
+                                            width={32}
+                                            height={32}
+                                            alt="Question Circle by primefaces"
+                                        />
+                                    </span>
+                                </Tooltip>
                             </div>
                         </div>
 
@@ -327,7 +471,7 @@ export default function ExpertisePage() {
                                 Entry-level experience in building front-end applications using Next.js with Tailwind CSS.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 1/5
                                 </span>
                             </div>
@@ -339,7 +483,7 @@ export default function ExpertisePage() {
                             Entry-level experience in building backend applications using Java Spring Boot.
                             </p>
                             <div className="pt-4">
-                                <span className="inline-flex items-center bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mr-2 mb-2">
+                                <span className="inline-flex items-center bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2">
                                 1/5
                                 </span>
                             </div>

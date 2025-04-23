@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Roboto } from 'next/font/google';
 import "./globals.css";
+import {Providers} from "./providers";
 
 const roboto = Roboto({
   subsets: ['latin'],
-  weight: ['100','200','300', '400', '500', '600', '700', '800']
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800']
 });
 
 export const metadata: Metadata = {
@@ -20,40 +21,46 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={roboto.className}>
-        {/* Header */}
-        <header className="bg-white shadow-md py-4 sticky top-0">
-          <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <h1 className="text-2xl font-semibold ">
-              <span className="text-red-600">jhops</span><span className="text-gray-900">.me</span>
-            </h1>
-            <ul className="flex space-x-8 text-gray-900">
-              <li><a href="/" className="hover:text-amber-600 transition">Home</a></li>
-              <li><a href="/expertise" className="hover:text-amber-600 transition">Expertise</a></li>
-              <li><a href="/contact" className="hover:text-amber-600 transition">Contact</a></li>
-            </ul>
-          </nav>
-        </header>
+      <Providers>
+          {/* Header */}
+          <header className="bg-white shadow-md py-4 sticky top-0">
+            <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+              <h1 className="text-2xl font-semibold ">
+                <span className="text-red-600">jhops</span><span className="text-gray-900">.me</span>
+              </h1>
+              <ul className="flex space-x-8 text-gray-900">
+                <li><a href="/" className="hover:text-amber-600 transition">Home</a></li>
+                <li><a href="/expertise" className="hover:text-amber-600 transition">Expertise</a></li>
+                <li><a href="/contact" className="hover:text-amber-600 transition">Contact</a></li>
+                <li><a href="/about" className="hover:text-amber-600 transition">About</a></li>
+              </ul>
+            </nav>
+          </header>
 
-        {/* Main Content */}
-        <main>{children}</main>
+          {/* Main Content */}
+          
+          <main>
+            {children}
+          </main>
 
-        {/* Footer */}
-        <footer className="bg-gray-900 py-8">
-          <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-            <p className="text-gray-400 mb-4">&copy; 2025 jhops.me by Joseph Hopwood. All Rights Reserved.</p>
-            <div className="flex gap-4">
-              <a href="https://github.com/JHops881" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
-                GitHub
-              </a>
-              <a href="https://linkedin.com/in/josephhopwood" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
-                LinkedIn
-              </a>
+          {/* Footer */}
+          <footer className="bg-gray-900 py-8">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+              <p className="text-gray-400 mb-4">&copy; 2025 jhops.me by Joseph Hopwood. All Rights Reserved.</p>
+              <div className="flex gap-4">
+                <a href="https://github.com/JHops881" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
+                  GitHub
+                </a>
+                <a href="https://linkedin.com/in/josephhopwood" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
+                  LinkedIn
+                </a>
+              </div>
+              <p className="text-gray-300 mt-4">
+                Let's connect and build something amazing together.
+              </p>
             </div>
-            <p className="text-gray-300 mt-4">
-              Let's connect and build something amazing together.
-            </p>
-          </div>
-        </footer>
+          </footer>
+        </Providers>
       </body>
     </html>
   );

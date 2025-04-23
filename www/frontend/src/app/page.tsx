@@ -12,7 +12,7 @@ export default function Home() {
                     Hi! I'm Joseph
                 </h1>
                 <p className="text-xl text-gray-50 mb-6">
-                I'm a dynamic IT enthusiast commited to exceeding expectations of quality, detail, and innovation.
+                Dynamic IT enthusiast commited to exceeding expectations of quality, detail, and innovation.
                 </p>
                 <div className="flex gap-4">
                     <a
@@ -21,9 +21,12 @@ export default function Home() {
                     >
                         Learn More
                     </a>
-                    <button className="border border-gray-900 text-gray-900 px-6 py-3 rounded-lg hover:bg-amber-100 transition">
+                    <a
+                        href="/contact"
+                        className="border border-gray-900 text-gray-900 px-6 py-3 rounded-lg hover:bg-amber-100 transition"
+                    >
                         Connect
-                    </button>
+                    </a>
                 </div>
             </section>
 
