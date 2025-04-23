@@ -9,7 +9,7 @@ export default function Home() {
             {/* Hero Section */}
             <section className="flex flex-col items-center justify-center min-h-screen text-center p-8">
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-50 mb-4">
-                    Hi! I'm Joseph
+                    Hi! I&aposm Joseph
                 </h1>
                 <p className="text-xl text-gray-50 mb-6">
                 Dynamic IT enthusiast commited to exceeding expectations of quality, detail, and innovation.
@@ -56,7 +56,7 @@ export default function Home() {
                             <div className="font-bold text-xl mb-2 text-red-600">Cloud</div>
                             <p className="text-gray-700 text-base">
                                 Multi-cloud experience with AWS and Azure focusing on provisioning 
-                                robust and cost-effective cloud solutions to fit the project's
+                                robust and cost-effective cloud solutions to fit the project&aposs
                                 needs. I am experienced with many methods of deployment - SDK, CLI, Console,  and IaC.
                             </p>
                         </div>

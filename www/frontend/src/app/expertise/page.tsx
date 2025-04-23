@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image'
-import Link from 'next/link';
 
 import {Tooltip} from "@heroui/tooltip";
 
@@ -16,7 +15,7 @@ export default function ExpertisePage() {
                 </h1>
 
                 <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                    A curated collection of in-demand skills and experience I've developed. Browse below to see how I can contribute to your next project!
+                    A curated collection of in-demand skills and experience I&aposve developed. Browse below to see how I can contribute to your next project!
                 </p>
             </section>
 

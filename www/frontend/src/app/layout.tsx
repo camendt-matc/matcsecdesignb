@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from 'next/font/google';
 import "./globals.css";
 import {Providers} from "./providers";
+import Link from 'next/link';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -29,10 +30,10 @@ export default function RootLayout({
                 <span className="text-red-600">jhops</span><span className="text-gray-900">.me</span>
               </h1>
               <ul className="flex space-x-8 text-gray-900">
-                <li><a href="/" className="hover:text-amber-600 transition">Home</a></li>
-                <li><a href="/expertise" className="hover:text-amber-600 transition">Expertise</a></li>
-                <li><a href="/contact" className="hover:text-amber-600 transition">Contact</a></li>
-                <li><a href="/about" className="hover:text-amber-600 transition">About</a></li>
+                <li><Link href="/" className="hover:text-amber-600 transition">Home</Link></li>
+                <li><Link href="/expertise" className="hover:text-amber-600 transition">Expertise</Link></li>
+                <li><Link href="/contact" className="hover:text-amber-600 transition">Contact</Link></li>
+                <li><Link href="/about" className="hover:text-amber-600 transition">About</Link></li>
               </ul>
             </nav>
           </header>
@@ -56,7 +57,7 @@ export default function RootLayout({
                 </a>
               </div>
               <p className="text-gray-300 mt-4">
-                Let's connect and build something amazing together.
+                Let&aposs connect and build something amazing together.
               </p>
             </div>
           </footer>
