@@ -57,7 +57,7 @@ export default function RootLayout({
                 </a>
               </div>
               <p className="text-gray-300 mt-4">
-                Let&aposs connect and build something amazing together.
+                Let&apos;s connect and build something amazing together.
               </p>
             </div>
           </footer>
