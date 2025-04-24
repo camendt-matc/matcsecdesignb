@@ -1,9 +1,12 @@
 name: Main Pipeline
 run-name: ${{ github.ref }} Release Pipeline 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   
-  Build-Webpages-App:
+  Build-Backend-App:
     runs-on: ubuntu-latest
     steps:
 
@@ -21,10 +24,10 @@ jobs:
             www/**/gradle-wrapper.properties
 
       - name: Make gradlew executable
-        run: chmod +x ./www/gradlew
+        run: chmod +x ./www/backend/gradlew
 
       - name: Build www
-        working-directory: ./www
+        working-directory: ./www/backend
         run: ./gradlew build --no-daemon
 
       - name: Login to Docker Hub
@@ -39,35 +42,19 @@ jobs:
       - name: Build and push www-server-image
         uses: docker/build-push-action@v6
         with:
-          context: ./www
+          context: ./www/backend
+          file: prod.dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/www-server-image:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/www-backend:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  Build-API-App:
+  Build-Frontend-App:
     runs-on: ubuntu-latest
     steps:
 
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Get JDK 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '21'
-          cache: 'gradle'
-          cache-dependency-path: |
-            api/**/*.gradle*
-            api/**/gradle-wrapper.properties
-
-      - name: Make gradlew executable
-        run: chmod +x ./api/gradlew
-
-      - name: Build api
-        working-directory: ./api
-        run: ./gradlew build --no-daemon
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -77,16 +64,42 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Build and push api-server-image
+      
+      - name: Build and push www-server-image
         uses: docker/build-push-action@v6
         with:
-          context: ./api
+          context: ./www/frontend
+          file: prod.dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/api-server-image:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/www-frontend:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  Build-Reverse-Proxy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build and push www-server-image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./reverse-proxy
+          file: prod.dockerfile
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/reverse-proxy:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   Publish-App-Config-Artifacts:
     runs-on: ubuntu-latest
@@ -104,14 +117,10 @@ jobs:
 
       - name: Modify Configs for Production
         run: | 
-          sed -i 's/localhost/jhops.me/g' nginx.conf
           sed -i 's|:dev|:latest|g' docker-compose.yaml
 
       - name: Upload Docker Compose Template to Amazon S3
         run: aws s3 cp ./docker-compose.yaml s3://jhops881-web-server-files/docker-compose.yaml
-
-      - name: Upload NGINX config to Amazon S3
-        run: aws s3 cp ./nginx.conf s3://jhops881-web-server-files/nginx.conf
 
   Deploy-Infrastructure:
     runs-on: ubuntu-latest
@@ -145,7 +154,7 @@ jobs:
 
   Deploy-Apps:
     runs-on: ubuntu-latest
-    needs: [Build-API-App, Build-Webpages-App, Publish-App-Config-Artifacts, Deploy-Infrastructure]
+    needs: [Build-Backend-App, Build-Frontend-App, Build-Reverse-Proxy, Publish-App-Config-Artifacts, Deploy-Infrastructure]
     steps:
 
       - name: Setup AWS CLI
@@ -177,7 +186,6 @@ jobs:
               "sudo docker container prune -f",
               "sudo docker network prune -f",
               "aws s3api get-object --bucket jhops881-web-server-files --key docker-compose.yaml docker-compose.yaml",
-              "aws s3api get-object --bucket jhops881-web-server-files --key nginx.conf nginx.conf",
               "docker compose pull",
               "docker compose up -d"
             ]' \
