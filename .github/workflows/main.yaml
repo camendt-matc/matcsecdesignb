@@ -136,6 +136,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - run: cd ./infrastructure
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
@@ -143,10 +145,10 @@ jobs:
         run: terraform init -input=false
 
       - name: Terraform Validate
-        run: terraform validate -no-color
+        run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -no-color -out=tfplan -input=false
+        run: terraform plan -out=tfplan -input=false
         continue-on-error: false
 
       - name: Terraform Apply | Deploy Production Infrastructure
