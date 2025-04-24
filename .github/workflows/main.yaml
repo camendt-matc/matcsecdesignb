@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./www/backend
-          file: prod.dockerfile
+          file: ./www/backend/prod.dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/www-backend:latest
           cache-from: type=gha
@@ -69,7 +69,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./www/frontend
-          file: prod.dockerfile
+          file: ./www/frontend/prod.dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/www-frontend:latest
           cache-from: type=gha
@@ -95,7 +95,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./reverse-proxy
-          file: prod.dockerfile
+          file: ./reverse-proxy/prod.dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/reverse-proxy:latest
           cache-from: type=gha
