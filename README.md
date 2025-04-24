@@ -1,25 +1,25 @@
-# 🧭 Personal Website – Fullstack Spring Boot + AWS + CI/CD
+# 🧭 Personal Website – Fullstack (Next.js + Spring Boot + AWS + GitHub Actions)
 
-This repository contains the source code and infrastructure for my personal website — a fullstack application built with two Spring Boot services, deployed on AWS using Terraform, and orchestrated via Docker and GitHub Actions. https://jhops.me
+This repository contains the source code, configuration management, and scripts for my personal website — a fullstack application built with a Next.js frontend, Spring Boot Backend, deployed on AWS using Terraform, and orchestrated via Docker and GitHub Actions. https://jhops.me
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Java + Spring Boot (2 apps: API server & Web server)
-- **Frontend**: Embedded in the Web Spring Boot app (Thymeleaf)
+- **Backend**: Java + Spring Boot
+- **Frontend**: Next.js
 - **Reverse Proxy**: NGINX
 - **Containerization**: Docker + Docker Compose
 - **Infrastructure as Code**: Terraform
-- **Cloud**: AWS EC2
+- **Cloud**: AWS EC2, S3
 - **CI/CD**: GitHub Actions
 
 ## 🚀 Architecture Overview
 
 The application is deployed on a single AWS EC2 instance and runs as three Docker containers:
 
-- `api-server`: Spring Boot app serving API requests
-- `web-server`: Spring Boot app serving web content
+- `backend api`: Spring Boot app serving API requests
+- `frontend app`: Next.js serving web content
 - `nginx`: Acts as a reverse proxy to route traffic to the appropriate service
-- `EC2 Instance`: Hosts the containerized services
+- `host`: EC2 instance that hosts the containerized services
 
 <pre>
                   ┌────────────┐
@@ -27,16 +27,16 @@ The application is deployed on a single AWS EC2 instance and runs as three Docke
                   └─────┬──────┘
                         │
    ┌────────────────────+─────────────────────┐
-   │                    |     EC2 Instance    │
+   │                    |             Host    │
    │                    |                     │
-   │            ┌──────▼───────┐              │
+   │            ┌───────▼──────┐              │
    │            │    NGINX     │              │
    │            └────┬──┬──────┘              │
    │                 │  │                     │
    │      ┌──────────┘  └──────────┐          │
-   │ ┌────▼────┐             ┌─────▼─────┐    │
-   │ │ Web App │             │  API App  │    │
-   │ └─────────┘             └───────────┘    │
+   │ ┌────▼────────┐       ┌───────▼──────┐   │
+   │ │ Backend API │       │ Frontend App │   │
+   │ └─────────────┘       └──────────────┘   │
    │                                          │
    └──────────────────────────────────────────┘ 
 </pre>
@@ -54,10 +54,8 @@ The application is deployed on a single AWS EC2 instance and runs as three Docke
 
 Every push to the `main` branch triggers:
 
-1. Build of both Spring Boot applications
-2. Docker image creation and push to Docker Hub
+1. Build of Spring Boot backend application
+2. Docker image creation and push to Docker Hub of full stack
 3. Terraform apply
 4. Update and restart of production container services with commands sent via AWS SSM
-
-You can monitor the deployment progress directly in your GitHub Actions tab.
 
