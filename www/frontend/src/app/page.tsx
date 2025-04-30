@@ -12,7 +12,7 @@ export default function Home() {
                     Hi! I&apos;m Joseph
                 </h1>
                 <p className="text-xl text-gray-50 mb-6">
-                Dynamic IT enthusiast commited to exceeding expectations of quality, detail, and innovation.
+                Adaptable IT Cloud DevOps Specialist commited to exceeding expectations of quality, detail, and innovation.
                 </p>
                 <div className="flex gap-4">
                     <a
@@ -37,9 +37,11 @@ export default function Home() {
             >
                 <h2 className="text-3xl font-semibold mb-4">My Background</h2>
                 <p className="max-w-2xl text-center text-lg pb-12">
-                    With a diverse skill set across various technologies and disciplines, I focus on creating impactful,
-                    scalable solutions that enhance efficiency. My work spans from optimizing infrastructure to implementing
-                    automation, always with a strong emphasis on innovation and streamlined processes.
+                    My story originally started in programming with an interest in
+                    computer science and software development. Because of this, I&apos;ve been able to see the larger picture of how the
+                    pieces fit together while learning the
+                    ins-and-outs of IT Operations: approaching technical
+                    aspects with greater adaptability and depth. 
                 </p>
                 <div className="flex flex-wrap space-x-4">
                     {/* Feature Card 1 - Cloud*/}

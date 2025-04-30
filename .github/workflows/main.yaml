@@ -1,5 +1,5 @@
 name: Main Pipeline
-run-name: ${{ github.ref }} Release Pipeline 🚀
+run-name: Release Pipeline 🚀
 on:
   push:
     branches:
@@ -26,7 +26,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./www/backend/gradlew
 
-      - name: Build www
+      - name: Build backaend app .jar
         working-directory: ./www/backend
         run: ./gradlew build --no-daemon
 
@@ -39,7 +39,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       
-      - name: Build and push www-server-image
+      - name: Build and push backend image
         uses: docker/build-push-action@v6
         with:
           context: ./www/backend
@@ -65,7 +65,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       
-      - name: Build and push www-server-image
+      - name: Build and push frontend image
         uses: docker/build-push-action@v6
         with:
           context: ./www/frontend
@@ -91,7 +91,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       
-      - name: Build and push www-server-image
+      - name: Build and push reverse proxy image
         uses: docker/build-push-action@v6
         with:
           context: ./reverse-proxy
@@ -115,7 +115,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Modify Configs for Production
+      - name: Change Image Tags to Production
         run: | 
           sed -i 's|:dev|:latest|g' docker-compose.yaml
 
