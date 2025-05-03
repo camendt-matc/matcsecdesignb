@@ -23,7 +23,7 @@ export default function Home() {
                     </a>
                     <a
                         href="/contact"
-                        className="border border-body text-body px-6 py-3 rounded-lg hover:bg-heading transition"
+                        className="border-2 border-body text-body px-6 py-3 rounded-lg hover:bg-primary hover:text-heading hover:border-background/0 transition"
                     >
                         Connect
                     </a>
@@ -68,7 +68,7 @@ export default function Home() {
                         </div>
                         <div className="px-6 pb-2">
                             <Link href="/expertise#cloud" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
+                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
                                 Read More
                                     <Image
                                         src="/right-arrow.svg"
@@ -103,7 +103,7 @@ export default function Home() {
                         </div>
                         <div className="px-6 pb-2">
                             <Link href="/expertise#devops" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
+                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
                                 Read More
                                     <Image
                                         src="/right-arrow.svg"
@@ -139,7 +139,7 @@ export default function Home() {
                         </div>
                         <div className="px-6 pb-2">
                             <Link href="/expertise#development" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
+                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
                                 Read More
                                     <Image
                                         src="/right-arrow.svg"
