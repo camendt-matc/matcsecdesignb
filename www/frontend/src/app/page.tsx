@@ -5,10 +5,10 @@ import Link from 'next/link';
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-radial-[at_50%_25%] from-card via-card2 to-background transition-colors duration-500">
+        <main className="min-h-screen bg-radial-[at_50%_25%] from-card via-backgound to-background2 transition-colors duration-500">
             {/* Hero Section */}
             <section className="flex flex-col items-center justify-center min-h-screen text-center p-8">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-secondary to-tertiary inline-block text-transparent bg-clip-text">
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-secondary to-tertiary inline-block text-transparent bg-clip-text">
                     Hi! I&apos;m Joseph
                 </h1>
                 <p className="text-xl text-body mb-6">
@@ -33,8 +33,9 @@ export default function Home() {
             {/* Info Section */}
             <section
                 id="info"
-                className="min-h-screen flex flex-col items-center justify-center bg-background text-body px-6 py-20 transition-colors duration-500"
+                className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 flex flex-col items-center justify-center bg-background text-body px-6 py-20 transition-colors duration-500"
             >
+                {/* My Background */}               
                 <h2 className="text-3xl text-heading font-semibold mb-4">My Background</h2>
                 <p className="max-w-2xl text-center text-lg pb-12">
                     My story originally started in programming with an interest in
@@ -44,8 +45,10 @@ export default function Home() {
                     aspects with greater adaptability and depth. 
                 </p>
                 <div className="flex flex-wrap space-x-4">
+
+
                     {/* Feature Card 1 - Cloud*/}
-                    <div className="max-w-sm rounded overflow-hidden bg-gradient-to-br from-card via-card to-card2 transition-colors shadow-lg">
+                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/cloud.svg"
@@ -65,7 +68,7 @@ export default function Home() {
                         </div>
                         <div className="px-6 pb-2">
                             <Link href="/expertise#cloud" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-heading mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
+                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
                                 Read More
                                     <Image
                                         src="/right-arrow.svg"
@@ -80,7 +83,7 @@ export default function Home() {
                     </div>
 
                     {/* Feature Card 2 - DevOps*/}
-                    <div className="max-w-sm rounded overflow-hidden bg-gradient-to-br from-card via-card to-card2 transition-colors shadow-lg">
+                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/dev-ops.svg"
@@ -98,9 +101,9 @@ export default function Home() {
                                 passionate work ethic and a mindset focused on efficiency.
                             </p>
                         </div>
-                        <div className="px-6 pt-4 pb-2">
+                        <div className="px-6 pb-2">
                             <Link href="/expertise#devops" passHref>
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-lg px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2 hover:from-red-600 hover:via-amber-600 hover:to-amber-400">
+                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
                                 Read More
                                     <Image
                                         src="/right-arrow.svg"
@@ -115,7 +118,7 @@ export default function Home() {
                     </div>
 
                     {/* Feature Card 3 - Development*/}
-                    <div className="max-w-sm rounded overflow-hidden bg-gradient-to-br from-card via-card to-card2 transition-colors shadow-lg">
+                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/code.svg"
@@ -126,17 +129,17 @@ export default function Home() {
                             />
                         </div>
                         <div className="px-6 pb-4">
-                            <div className="font-bold text-xl mb-2 text-red-600">Development</div>
-                            <p className="text-gray-700 text-base">
+                            <div className="font-bold text-xl mb-2 text-heading">Development</div>
+                            <p className="text-body">
                                 From low-level languages, memory management, and GPU programming to
                                 in-demand high-level langauges or functionl design
                                 patterns; I am highly adaptable and familiar with 
                                 industry-leading architectures.
                             </p>
                         </div>
-                        <div className="px-6 pt-4 pb-2">
+                        <div className="px-6 pb-2">
                             <Link href="/expertise#development" passHref>
-                                <span className="inline-flex items-center bg-gradient-to-br from-red-500 via-amber-500 to-amber-300 transition-colors duration-500 rounded-lg px-3 py-1 text-sm font-semibold text-gray-50 mr-2 mb-2 hover:from-red-600 hover:via-amber-600 hover:to-amber-400">
+                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 border-secondary border-2 hover:to-primary transition-colors duration-200">
                                 Read More
                                     <Image
                                         src="/right-arrow.svg"

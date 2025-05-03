@@ -3,15 +3,15 @@
 export default function ContactPage() {
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-white to-gray-100 text-gray-800">
+        <main className="min-h-screen bg-gradient-to-br from-background to-background2 text-body">
             {/* Hero Section */}
             <section className="flex flex-col items-center justify-center text-center py-20 px-6">
-                <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-heading">
                     About Me
                 </h1>
-                <p className="text-lg text-gray-700 max-w-3xl mx-auto text-left">
+                <p className="text-lg max-w-3xl mx-auto text-left">
                     I&apos;m an IT Cloud DevOps Specialist graduating from Madison College in May. 
-                    With a career in IT, I love that I can combine my passion for computer technology and art.
+                    With a career in IT, I love that I can combine my passion for computer technology with my passion for art.
                     Namely, it is the problem solving process that I have fallen in love with. 
                     When approached with challenges, I get the opportunity to come up with original and creative 
                     solutions where my imagination is the limit: and they make a real-world difference.  

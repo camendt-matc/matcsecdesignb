@@ -29,7 +29,7 @@ export default function RootLayout({
               <h1 className="text-2xl font-semibold ">
                 <span className="text-primary">jhops</span><span className="text-heading">.me</span>
               </h1>
-              <ul className="flex space-x-8 text-body">
+              <ul className="flex space-x-8 text-subheading">
                 <li><Link href="/" className="hover:text-primary transition">Home</Link></li>
                 <li><Link href="/expertise" className="hover:text-primary transition">Expertise</Link></li>
                 <li><Link href="/contact" className="hover:text-primary transition">Contact</Link></li>
@@ -45,7 +45,7 @@ export default function RootLayout({
           </main>
 
           {/* Footer */}
-          <footer className="bg-card py-8">
+          <footer className="bg-background py-8">
             <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
               <p className="text-body mb-4">&copy; 2025 jhops.me by Joseph Hopwood. All Rights Reserved.</p>
               <div className="flex gap-4">
