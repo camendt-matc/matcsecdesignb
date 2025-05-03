@@ -7,7 +7,8 @@ module.exports = {
     "./node_modules/@heroui/theme/dist/components/popover.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+    },
   },
   darkMode: "class",
   plugins: [heroui()],
