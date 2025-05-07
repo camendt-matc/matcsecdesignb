@@ -48,7 +48,7 @@ export default function Home() {
 
 
                     {/* Feature Card 1 - Cloud*/}
-                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg">
+                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/cloud.svg"
@@ -66,24 +66,10 @@ export default function Home() {
                                 needs. I am experienced with many methods of deployment - SDK, CLI, Console,  and IaC.
                             </p>
                         </div>
-                        <div className="px-6 pb-2">
-                            <Link href="/expertise#cloud" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
-                                Read More
-                                    <Image
-                                        src="/right-arrow.svg"
-                                        width={16}
-                                        height={16}
-                                        alt="Right Arrow"
-                                        className="ml-2 text-heading"
-                                    />
-                                </span>
-                            </Link>
-                        </div>
                     </div>
 
                     {/* Feature Card 2 - DevOps*/}
-                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg">
+                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/dev-ops.svg"
@@ -101,24 +87,10 @@ export default function Home() {
                                 passionate work ethic and a mindset focused on efficiency.
                             </p>
                         </div>
-                        <div className="px-6 pb-2">
-                            <Link href="/expertise#devops" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
-                                Read More
-                                    <Image
-                                        src="/right-arrow.svg"
-                                        width={16}
-                                        height={16}
-                                        alt="Right Arrow"
-                                        className="ml-2"
-                                    />
-                                </span>
-                            </Link>
-                        </div>
                     </div>
 
                     {/* Feature Card 3 - Development*/}
-                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg">
+                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/code.svg"
@@ -137,21 +109,21 @@ export default function Home() {
                                 industry-leading architectures.
                             </p>
                         </div>
-                        <div className="px-6 pb-2">
-                            <Link href="/expertise#development" passHref>
-                                <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center rounded-md px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
-                                Read More
-                                    <Image
-                                        src="/right-arrow.svg"
-                                        width={16}
-                                        height={16}
-                                        alt="Right Arrow"
-                                        className="ml-2"
-                                    />
-                                </span>
-                            </Link>
-                        </div>
                     </div>
+                </div>
+                <div className="py-8">
+                    <Link href="/expertise" passHref>
+                        <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center text-xl rounded-md px-3 py-1 font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
+                        Read More
+                            <Image
+                                src="/right-arrow.svg"
+                                width={16}
+                                height={16}
+                                alt="Right Arrow"
+                                className="ml-2"
+                            />
+                        </span>
+                    </Link>
                 </div>
 
             </section>
