@@ -112,20 +112,20 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="py-8">
-                    <Link href="/expertise" passHref>
-                        <span className="inline-flex bg-gradient-to-br from-primary to-secondary items-center text-xl rounded-md px-3 py-1 font-semibold text-white mr-2 mb-2 hover:to-primary transition-colors duration-200">
+                    <a
+                        href="/expertise"
+                        className="inline-flex bg-primary text-heading px-6 py-3 rounded-lg hover:bg-background transition"
+                    >
                         Read More
-                            <Image
-                                src="/right-arrow.svg"
-                                width={16}
-                                height={16}
-                                alt="Right Arrow"
-                                className="ml-2"
-                            />
-                        </span>
-                    </Link>
+                        <Image
+                            src="/right-arrow.svg"
+                            width={16}
+                            height={16}
+                            alt="Right Arrow"
+                            className="ml-2"
+                        />
+                    </a>
                 </div>
-
             </section>
         </main>
     );
