@@ -18,7 +18,7 @@ export default function ContactPage() {
                     <br /><br />
                     When I&apos;m not 11 tabs deep into the documentation-filled troubleshooting rabbit hole,
                     I love to exchange language with people online to learn Mandarin Chinese.
-                    My other hobbies include cooking, weightifting, and learning. I love listening to new music or
+                    My other hobbies include cooking, weightlifting, and learning. I love listening to new music or
                     being exposed to new cultures. I have a particular soft spot for animals and wildlife, and I
                     thrive the most in social and collaborative settings.
 

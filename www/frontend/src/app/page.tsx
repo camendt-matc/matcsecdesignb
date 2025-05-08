@@ -5,28 +5,28 @@ import Link from 'next/link';
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-radial-[at_50%_25%] from-card via-backgound to-background2 transition-colors duration-500">
+        <main className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 transition-colors duration-500">
             {/* Hero Section */}
             <section className="flex flex-col items-center justify-center min-h-screen text-center p-8">
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-secondary to-tertiary inline-block text-transparent bg-clip-text">
                     Hi! I&apos;m Joseph
                 </h1>
                 <p className="text-xl text-body mb-6">
-                Adaptable IT Cloud DevOps Specialist commited to exceeding expectations of quality, detail, and innovation.
+                Adaptable IT Cloud DevOps Specialist committed to exceeding expectations of quality, detail, and innovation.
                 </p>
                 <div className="flex gap-4">
-                    <a
+                    <Link
                         href="#info"
                         className="bg-primary text-heading px-6 py-3 rounded-lg hover:bg-background hover:text-body transition"
                     >
                         Learn More
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="/contact"
                         className="border-2 border-body text-body px-6 py-3 rounded-lg hover:bg-primary hover:text-heading hover:border-background/0 transition"
                     >
                         Connect
-                    </a>
+                    </Link>
                 </div>
             </section>
 
@@ -82,7 +82,7 @@ export default function Home() {
                         <div className="px-6 pb-4">
                             <div className="font-bold text-xl mb-2 text-heading">DevOps</div>
                             <p>
-                                End-to-end workflow optimiztion, automation, and innovation. Hands-on and
+                                End-to-end workflow optimization, automation, and innovation. Hands-on and
                                 academic experience with leading CI/CD tools and methodologies. I bring a
                                 passionate work ethic and a mindset focused on efficiency.
                             </p>
@@ -104,7 +104,7 @@ export default function Home() {
                             <div className="font-bold text-xl mb-2 text-heading">Development</div>
                             <p className="text-body">
                                 From low-level languages, memory management, and GPU programming to
-                                in-demand high-level langauges or functionl design
+                                in-demand high-level languages or functional design
                                 patterns; I am highly adaptable and familiar with 
                                 industry-leading architectures.
                             </p>
@@ -112,7 +112,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="py-8">
-                    <a
+                    <Link
                         href="/expertise"
                         className="inline-flex bg-primary text-heading px-6 py-3 rounded-lg hover:bg-background transition"
                     >
@@ -124,7 +124,7 @@ export default function Home() {
                             alt="Right Arrow"
                             className="ml-2"
                         />
-                    </a>
+                    </Link>
                 </div>
             </section>
         </main>
