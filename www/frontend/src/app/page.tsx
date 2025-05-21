@@ -11,9 +11,6 @@ export default function Home() {
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-secondary to-tertiary inline-block text-transparent bg-clip-text">
                     Hi! I&apos;m Joseph
                 </h1>
-                <p className="text-xl text-body mb-6">
-                Adaptable IT Cloud DevOps Specialist committed to exceeding expectations of quality, detail, and innovation.
-                </p>
                 <div className="flex gap-4">
                     <Link
                         href="#info"
@@ -23,7 +20,7 @@ export default function Home() {
                     </Link>
                     <Link
                         href="/contact"
-                        className="border-2 border-body text-body px-6 py-3 rounded-lg hover:bg-primary hover:text-heading hover:border-background/0 transition"
+                        className="border-2 border-body text-body px-6 py-3 rounded-lg hover:bg-background hover:border-background/0 transition"
                     >
                         Connect
                     </Link>
@@ -36,17 +33,8 @@ export default function Home() {
                 className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 flex flex-col items-center justify-center bg-background text-body px-6 py-20 transition-colors duration-500"
             >
                 {/* My Background */}               
-                <h2 className="text-3xl text-heading font-semibold mb-4">My Background</h2>
-                <p className="max-w-2xl text-center text-lg pb-12">
-                    My story originally started in programming with an interest in
-                    computer science and software development. Because of this, I&apos;ve been able to see the larger picture of how the
-                    pieces fit together while learning the
-                    ins-and-outs of IT Operations: approaching technical
-                    aspects with greater adaptability and depth. 
-                </p>
+                <h2 className="text-3xl text-heading font-semibold mb-6">My Background</h2>
                 <div className="flex flex-wrap space-x-4">
-
-
                     {/* Feature Card 1 - Cloud*/}
                     <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
                         <div className="p-8 items-center justify-center flex">
@@ -61,9 +49,8 @@ export default function Home() {
                         <div className="px-6 pb-4">
                             <div className="font-bold text-xl mb-2 text-heading">Cloud</div>
                             <p className="">
-                                Multi-cloud experience with AWS and Azure focusing on provisioning 
-                                robust and cost-effective cloud solutions to fit the project&apos;s
-                                needs. I am experienced with many methods of deployment - SDK, CLI, Console,  and IaC.
+                                Multi-cloud experience with AWS and Azure using key services for web deployment. My focus is on provisioning intelligently designed solutions
+                                that are built on the pillars of scalability, security, cost-efficiency, and performance. 
                             </p>
                         </div>
                     </div>
@@ -82,9 +69,9 @@ export default function Home() {
                         <div className="px-6 pb-4">
                             <div className="font-bold text-xl mb-2 text-heading">DevOps</div>
                             <p>
-                                End-to-end workflow optimization, automation, and innovation. Hands-on and
-                                academic experience with leading CI/CD tools and methodologies. I bring a
-                                passionate work ethic and a mindset focused on efficiency.
+                                Hands-on and academic and personal experience with leading CI/CD tools and methodologies that enables me
+                                to implement end-to-end workflow automation. I bring 
+                                passion and a mindset focused on problem solving and practicality.
                             </p>
                         </div>
                     </div>
@@ -103,10 +90,10 @@ export default function Home() {
                         <div className="px-6 pb-4">
                             <div className="font-bold text-xl mb-2 text-heading">Development</div>
                             <p className="text-body">
-                                From low-level languages, memory management, and GPU programming to
-                                in-demand high-level languages or functional design
-                                patterns; I am highly adaptable and familiar with 
-                                industry-leading architectures.
+                                From projects with low-level languages, memory management, and GPU programming to
+                                in-demand high-level languages. I am adaptable to new practices and come with a
+                                solid foundation to recognize patterns and follow best practices. 
+
                             </p>
                         </div>
                     </div>

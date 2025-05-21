@@ -10,18 +10,11 @@ export default function ContactPage() {
                     About Me
                 </h1>
                 <p className="text-lg max-w-3xl mx-auto text-left">
-                    I&apos;m an IT Cloud DevOps Specialist graduating from Madison College in May. 
-                    With a career in IT, I love that I can combine my passion for computer technology with my passion for art.
-                    Namely, it is the problem solving process that I have fallen in love with. 
-                    When approached with challenges, I get the opportunity to come up with original and creative 
-                    solutions where my imagination is the limit: and they make a real-world difference.  
-                    <br /><br />
-                    When I&apos;m not 11 tabs deep into the documentation-filled troubleshooting rabbit hole,
-                    I love to exchange language with people online to learn Mandarin Chinese.
-                    My other hobbies include cooking, weightlifting, and learning. I love listening to new music or
-                    being exposed to new cultures. I have a particular soft spot for animals and wildlife, and I
-                    thrive the most in social and collaborative settings.
-
+                    I am a recent IT Cloud DevOps graduate with hands-on experience providing technical support and tutoring
+                    Python at Madison College. I have four months of experience in a student support role assisting with hardware/software
+                    troubleshooting and academic support. Additionally, I have a strong foundation in cloud technologies,
+                    DevOps pipelines, and scripting, with personal projects involving automated AWS deployment scripts and containerized web CI/CD.
+                    I am passionate about delivering reliable, scalable solutions and continuing to grow in cloud infrastructure and automation.
                 </p>
             </section>
         </main>

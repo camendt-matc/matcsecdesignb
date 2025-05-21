@@ -15,7 +15,7 @@ export default function ExpertisePage() {
                 </h1>
 
                 <p className="text-lg text-body max-w-3xl mx-auto">
-                    A curated collection of in-demand skills and experience I&apos;ve developed. Browse below to see how I can contribute to your next project!
+                    A collection that highlights my skills and experience. Browse below to see how I align with your needs.
                 </p>
             </section>
             <section>
@@ -37,7 +37,7 @@ export default function ExpertisePage() {
                             <p className="text-body">
                                 I am proficient in Amazon Web Services (AWS) with hands-on experience in cloud architecture, deployment, and cost optimization.
                                 I have the most experience with key services such as EC2, S3, VPC, IAM, CloudWatch, Lambda, and
-                                <Link className="text-blue-400 inline-flex" target="_blank" rel="noopener noreferrer" href="https://github.com/jhopwood-matc/aws-admin-proj2">Cloudformation<Image src="/external-link.svg" width={16} height={16} alt="External Link by krystonschwarze"></Image></Link>.
+                                <Link className="text-blue-400 inline-flex" target="_blank" rel="noopener noreferrer" href="https://github.com/jhopwood-matc/aws-admin-proj2">CloudFormation<Image src="/external-link.svg" width={16} height={16} alt="External Link by krystonschwarze"></Image></Link>.
                                 <br /><br />
                                 I am proficient using the console, CLI, and IaC methods. Additionally, I am experienced with Boto3 for both <Link className="text-blue-400 inline-flex" target="_blank" rel="noopener noreferrer" href="https://github.com/jhopwood-matc/adv-cloud-mirror/blob/main/week%206%20-%20Error%20Handling/s3website.py">deployment<Image src="/external-link.svg" width={16} height={16} alt="External Link by krystonschwarze"></Image></Link>
                                 &nbsp;and <Link className="text-blue-400 inline-flex" target="_blank" rel="noopener noreferrer" href="https://github.com/jhopwood-matc/adv-cloud-mirror/blob/main/week%205%20-%20SNS/reboot_high_ec2.py">monitoring<Image src="/external-link.svg" width={16} height={16} alt="External Link by krystonschwarze"></Image></Link>.
@@ -47,7 +47,7 @@ export default function ExpertisePage() {
                         <div className="bg-card/40 rounded-lg shadow-lg overflow-hidden p-6 flex flex-col justify-between">
                             <h3 className="text-xl font-semibold text-heading mb-2">Microsoft Azure</h3>
                             <p className="text-body">
-                                I have foundational proficiency in with Azure: with hands-on experience deploying, managing, and optimizing solutions--including PaaS, IaaS, and SaaS offerings.
+                                I have foundational proficiency with Azure. I hands-on experience deploying, managing, and optimizing solutions--including PaaS, IaaS, and SaaS.
                                 I am most experienced with Virtual Machines, Virtual Networks, Blob Storage, App Services, and DevOps. Most of my experience with Azure has been around
                                 deploying .NET web applications--integrating databases, creating build/test and release pipelines, and storing web assets. I also have some exposure to Azure AI/Cognitive Services.
                                 
@@ -58,7 +58,7 @@ export default function ExpertisePage() {
                         <div className="bg-card/40 rounded-lg shadow-lg overflow-hidden p-6 flex flex-col justify-between text-body">
                             <h3 className="text-xl font-semibold text-heading mb-2">Cloud Design Patterns & Best Practices</h3>
                             <p>
-                                I have a foundational understanding of microservices as well as some experience in implementing it with services such as AWS ECS. I am also experienced with multi-az
+                                I have a foundational understanding of microservices as well as some experience in implementing it with services such as AWS ECS. I am also experienced with multi-AZ
                                 deployments for highly available architectures--which I am very familiar with. I am security conscious too--using tools such as IAM, encryption, and least privileged approaches to ensure a safe
                                 cloud environment. Lastly, I am always considering cost optimization when creating cloud solutions.
                             </p>
