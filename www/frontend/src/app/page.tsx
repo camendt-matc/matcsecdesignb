@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 transition-colors duration-500">
+        <main>
             {/* Hero Section */}
-            <section className="flex flex-col items-center justify-center min-h-screen text-center p-8">
+            <section className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 transition-colors duration-500 flex flex-col items-center justify-center min-h-screen text-center p-8">
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-secondary to-tertiary inline-block text-transparent bg-clip-text">
                     Hi! I&apos;m Joseph
                 </h1>
@@ -25,6 +25,22 @@ export default function Home() {
                         Connect
                     </Link>
                 </div>
+            </section>
+
+            {/* Hero Section */}
+            <section className="flex flex-col items-center justify-center text-center py-20 px-6">
+                <h1 className="text-3xl font-bold mb-4 text-heading">
+                    About Me
+                </h1>
+                <p className="text-lg max-w-3xl mx-auto text-left text-body">
+                    IT Cloud DevOps Specialist with three years of programming experience in Python.
+                    Experienced providing IT academic support and hardware/software troubleshooting.
+                    Additionally, I have a strong foundation in cloud technologies, DevOps pipelines,
+                    and scripting, with personal projects involving automated AWS deployment scripts,
+                    containerization, and continuous integration/continuous deployment (CI/CD) pipelines.
+                    I am passionate about delivering quality solutions and continuing to grow my skillset
+                    in cloud infrastructure and automation.
+                </p>
             </section>
 
             {/* Info Section */}
@@ -69,7 +85,7 @@ export default function Home() {
                         <div className="px-6 pb-4">
                             <div className="font-bold text-xl mb-2 text-heading">DevOps</div>
                             <p>
-                                Hands-on and academic and personal experience with leading CI/CD tools and methodologies that enables me
+                                Hands-on, academic, and personal experience with leading CI/CD tools and methodologies that enables me
                                 to implement end-to-end workflow automation. I bring 
                                 passion and a mindset focused on problem solving and practicality.
                             </p>

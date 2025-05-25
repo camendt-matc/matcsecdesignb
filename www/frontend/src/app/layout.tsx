@@ -33,7 +33,6 @@ export default function RootLayout({
                 <li><Link href="/" className="hover:text-primary transition">Home</Link></li>
                 <li><Link href="/expertise" className="hover:text-primary transition">Expertise</Link></li>
                 <li><Link href="/contact" className="hover:text-primary transition">Contact</Link></li>
-                <li><Link href="/about" className="hover:text-primary transition">About</Link></li>
               </ul>
             </nav>
           </header>
