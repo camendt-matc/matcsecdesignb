@@ -27,22 +27,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Hero Section */}
-            <section className="flex flex-col items-center justify-center text-center py-20 px-6">
-                <h1 className="text-3xl font-bold mb-4 text-heading">
-                    About Me
-                </h1>
-                <p className="text-lg max-w-3xl mx-auto text-left text-body">
-                    IT Cloud DevOps Specialist with three years of programming experience in Python.
-                    Experienced providing IT academic support and hardware/software troubleshooting.
-                    Additionally, I have a strong foundation in cloud technologies, DevOps pipelines,
-                    and scripting, with personal projects involving automated AWS deployment scripts,
-                    containerization, and continuous integration/continuous deployment (CI/CD) pipelines.
-                    I am passionate about delivering quality solutions and continuing to grow my skillset
-                    in cloud infrastructure and automation.
-                </p>
-            </section>
-
             {/* Info Section */}
             <section
                 id="info"
@@ -130,6 +114,23 @@ export default function Home() {
                     </Link>
                 </div>
             </section>
+
+            {/* About */}
+            <section className="flex flex-col items-center justify-center text-center py-20 px-6">
+                <h1 className="text-3xl font-bold mb-4 text-heading">
+                    About Me
+                </h1>
+                <p className="text-lg max-w-3xl mx-auto text-left text-body">
+                    IT Cloud DevOps Specialist with three years of programming experience in Python.
+                    Experienced providing IT academic support and hardware/software troubleshooting.
+                    Additionally, I have a strong foundation in cloud technologies, DevOps pipelines,
+                    and scripting, with personal projects involving automated AWS deployment scripts,
+                    containerization, and continuous integration/continuous deployment (CI/CD) pipelines.
+                    I am passionate about delivering quality solutions and continuing to grow my skillset
+                    in cloud infrastructure and automation.
+                </p>
+            </section>
+
         </main>
     );
 }
