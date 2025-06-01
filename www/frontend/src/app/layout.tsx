@@ -21,10 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth dark">
-      <body className={`${roboto.className} bg-background`}>
+      <body className={`${roboto.className} bg-background text-body`}>
       <Providers>
           {/* Header */}
-          <header className="bg-background/80 shadow-md py-4 sticky top-0 backdrop-blur-sm">
+          <header className="bg-background2/60 shadow-md py-4 sticky top-0 backdrop-blur-sm z-10">
             <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
               <h1 className="text-2xl font-semibold ">
                 <span className="text-primary">jhops</span><span className="text-heading">.me</span>
@@ -44,9 +44,9 @@ export default function RootLayout({
           </main>
 
           {/* Footer */}
-          <footer className="bg-background py-8">
+          <footer className="bg-background2 py-8">
             <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-              <p className="text-body mb-4">&copy; 2025 jhops.me by Joseph Hopwood. All Rights Reserved.</p>
+              <p className="mb-4">&copy; 2025 jhops.me by Joseph Hopwood. All Rights Reserved.</p>
               <div className="flex gap-4">
                 <a href="https://github.com/JHops881" target="_blank" rel="noopener noreferrer" className="text-heading hover:text-primary">
                   GitHub
@@ -55,7 +55,7 @@ export default function RootLayout({
                   LinkedIn
                 </a>
               </div>
-              <p className="text-body mt-4">
+              <p className="mt-4">
                 Let&apos;s connect and build something amazing together.
               </p>
             </div>

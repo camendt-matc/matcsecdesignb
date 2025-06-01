@@ -7,20 +7,20 @@ export default function Home() {
     return (
         <main>
             {/* Hero Section */}
-            <section className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 transition-colors duration-500 flex flex-col items-center justify-center min-h-screen text-center p-8">
+            <section className="min-h-screen bg-background flex flex-col items-center justify-center text-center p-8">
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-primary via-secondary to-tertiary inline-block text-transparent bg-clip-text">
                     Hi! I&apos;m Joseph
                 </h1>
                 <div className="flex gap-4">
                     <Link
                         href="#info"
-                        className="bg-primary text-heading px-6 py-3 rounded-lg hover:bg-background hover:text-body transition"
+                        className="bg-primary text-heading px-6 py-3 hover:bg-background2 hover:text-body transition"
                     >
                         Learn More
                     </Link>
                     <Link
                         href="/contact"
-                        className="border-2 border-body text-body px-6 py-3 rounded-lg hover:bg-background hover:border-background/0 transition"
+                        className="border-2 border-body px-6 py-3 hover:bg-background2 hover:border-background/0 transition"
                     >
                         Connect
                     </Link>
@@ -30,13 +30,13 @@ export default function Home() {
             {/* Info Section */}
             <section
                 id="info"
-                className="min-h-screen bg-radial-[at_50%_25%] from-card via-background to-background2 flex flex-col items-center justify-center bg-background text-body px-6 py-20 transition-colors duration-500"
+                className="min-h-screen flex flex-col items-center justify-center px-6 py-20"
             >
                 {/* My Background */}               
                 <h2 className="text-3xl text-heading font-semibold mb-6">My Background</h2>
                 <div className="flex flex-wrap space-x-4">
                     {/* Feature Card 1 - Cloud*/}
-                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
+                    <div className="max-w-sm overflow-hidden bg-card pb-6">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/cloud.svg"
@@ -56,7 +56,7 @@ export default function Home() {
                     </div>
 
                     {/* Feature Card 2 - DevOps*/}
-                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
+                    <div className="max-w-sm overflow-hidden bg-card pb-6">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/dev-ops.svg"
@@ -77,7 +77,7 @@ export default function Home() {
                     </div>
 
                     {/* Feature Card 3 - Development*/}
-                    <div className="max-w-sm rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg pb-6">
+                    <div className="max-w-sm overflow-hidden bg-card pb-6">
                         <div className="p-8 items-center justify-center flex">
                             <Image
                                 src="/code.svg"
@@ -101,7 +101,7 @@ export default function Home() {
                 <div className="py-8">
                     <Link
                         href="/expertise"
-                        className="inline-flex bg-primary text-heading px-6 py-3 rounded-lg hover:bg-background transition"
+                        className="inline-flex bg-primary text-heading px-6 py-3 hover:bg-background2 transition"
                     >
                         Read More
                         <Image
@@ -120,7 +120,7 @@ export default function Home() {
                 <h1 className="text-3xl font-bold mb-4 text-heading">
                     About Me
                 </h1>
-                <p className="text-lg max-w-3xl mx-auto text-left text-body">
+                <p className="text-lg max-w-3xl mx-auto text-left text-body mb-60">
                     IT Cloud DevOps Specialist with three years of programming experience in Python.
                     Experienced providing IT academic support and hardware/software troubleshooting.
                     Additionally, I have a strong foundation in cloud technologies, DevOps pipelines,
