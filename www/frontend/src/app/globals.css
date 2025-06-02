@@ -3,11 +3,9 @@
 @theme {
     --color-background: rgb(var(--background));
     --color-background2: rgb(var(--background2));
-    --color-primary: rgb(var(--primary));
-    --color-secondary: rgb(var(--secondary));
-    --color-tertiary: rgb(var(--tertiary));
     --color-card: rgb(var(--card));
     --color-body: rgb(var(--body));
+    --color-border: rgb(var(--border));
     --color-subheading: rgb(var(--subheading));
     --color-heading: rgb(var(--heading));
 }
@@ -16,42 +14,35 @@ html {
     scroll-behavior: smooth;
 }
 
-// light
 :root {
-    --background: 255, 255, 255;
-    --background2: 223, 217, 226;
-    --primary: 247, 179, 43;
-    --secondary: 247, 44, 37;
-    --tertiary: 6, 190, 225; 
-    --card: 255, 255, 255; 
-    --body: 100, 122, 163;
-    --subheading: 36, 35, 49;
-    --heading: 0, 0, 0;
+    --background: 7, 7, 7; 
+    --background2: 4, 4, 4;
+    --card: 15, 15, 15;
+    --body: 142, 142, 142;
+    --border: 50, 50, 50;
+    --subheading: 220, 220, 220;
+    --heading: 255, 255, 255;
 }
 
 .dark {
-    --background: 15, 23, 42; 
-    --background2: 2, 6, 23;
-    --primary: 37, 99, 235;
-    --secondary: 59, 130, 246;
-    --tertiary: 96, 165, 250;
-    --card: 30, 41, 59;
-    --body: 148, 163, 184;
-    --subheading: 203, 213, 225;
-    --heading: 248, 250, 252;
+    --background: 7, 7, 7; 
+    --background2: 4, 4, 4;
+    --card: 15, 15, 15;
+    --body: 142, 142, 142;
+    --border: 50, 50, 50;
+    --subheading: 220, 220, 220;
+    --heading: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: 15, 23, 42; 
-        --background2: 2, 6, 23;
-        --primary: 37, 99, 235;
-        --secondary: 59, 130, 246;
-        --tertiary: 96, 165, 250;
-        --card: 30, 41, 59;
-        --body: 148, 163, 184;
-        --subheading: 203, 213, 225;
-        --heading: 248, 250, 252;
+        --background: 12, 12, 12; 
+        --background2: 9, 9, 9;
+        --card: 20, 20, 20;
+        --body: 142, 142, 142;
+        --border: 50, 50, 50;
+        --subheading: 220, 220, 220;
+        --heading: 255, 255, 255;
     }
 }
 

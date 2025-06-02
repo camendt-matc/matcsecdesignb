@@ -27,12 +27,12 @@ export default function RootLayout({
           <header className="bg-background2/60 shadow-md py-4 sticky top-0 backdrop-blur-sm z-10">
             <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
               <h1 className="text-2xl font-semibold ">
-                <span className="text-primary">jhops</span><span className="text-heading">.me</span>
+                <span className="text-heading">jhops</span><span className="text-heading">.me</span>
               </h1>
               <ul className="flex space-x-8 text-subheading">
-                <li><Link href="/" className="hover:text-primary transition">Home</Link></li>
-                <li><Link href="/expertise" className="hover:text-primary transition">Expertise</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition">Contact</Link></li>
+                <li><Link href="/" className="hover:text-heading transition">Home</Link></li>
+                <li><Link href="/experience" className="hover:text-heading transition">Experience</Link></li>
+                <li><Link href="/contact" className="hover:text-heading transition">Contact</Link></li>
               </ul>
             </nav>
           </header>
@@ -48,10 +48,10 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
               <p className="mb-4">&copy; 2025 jhops.me by Joseph Hopwood. All Rights Reserved.</p>
               <div className="flex gap-4">
-                <a href="https://github.com/JHops881" target="_blank" rel="noopener noreferrer" className="text-heading hover:text-primary">
+                <a href="https://github.com/JHops881" target="_blank" rel="noopener noreferrer" className="text-heading hover:text-subheading">
                   GitHub
                 </a>
-                <a href="https://linkedin.com/in/josephhopwood" target="_blank" rel="noopener noreferrer" className="text-heading hover:text-primary">
+                <a href="https://linkedin.com/in/josephhopwood" target="_blank" rel="noopener noreferrer" className="text-heading hover:text-subheading">
                   LinkedIn
                 </a>
               </div>
