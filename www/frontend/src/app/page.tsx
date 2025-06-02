@@ -79,10 +79,10 @@ export default function Home() {
                 </div>
                 <div className="py-8">
                     <Link
-                        href="/experience"
+                        href="#projects"
                         className="inline-flex bg-border text-heading px-6 py-3 transition hover:invert rounded-lg"
                     >
-                        Read More
+                        See examples of my work
                         <Image
                             src="/right-arrow.svg"
                             width={16}
@@ -92,6 +92,115 @@ export default function Home() {
                         />
                     </Link>
                 </div>
+            </section>
+
+            {/* Projects */}
+            <section
+                id="projects"
+                className="min-h-screen flex flex-col items-center px-6 py-20"
+            >
+                {/* My Background */}
+                <h2 className="text-3xl text-heading font-semibold mb-7">Projects</h2>
+                
+                <div className="flex space-x-7 flex-row max-w-7xl">
+
+                    <div className="overflow-hidden bg-card border-border border rounded-lg">
+                        <div className="bg-border/35" >
+                            <h2 className="font-bold text-xl mx-6 py-3 text-subheading">
+                            Yuxi Boss 
+                            </h2>
+                        </div>
+                        <hr className='mb-2 border-border'></hr>
+                        <p className='mb-4 mx-6'>
+                            A Lightweight pre-study tool with support for Anki made for Simplified Chinese learners.
+                            Built with Python.
+                        </p>
+                        <Link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/JHops881/yuxi-boss"
+                            className="inline-flex border bg-border/35 border-border text-blue-400 px-3 py-3 transition hover:invert rounded-lg mx-6 mb-6"
+                        >
+                            View on GitHub&nbsp;
+                            <Image
+                                src="/external-link.svg"
+                                width={20} height={20}
+                                alt="External Link by krystonschwarze"
+                            />
+                        </Link>
+                    </div>
+
+
+                    <div className="overflow-hidden bg-card border-border border rounded-lg">
+                        <div className="bg-border/35" >
+                            <h2 className="font-bold text-xl mx-6 py-3 text-subheading">
+                            This Website
+                            </h2>
+                        </div>
+                        <hr className='mb-2 border-border'></hr>
+                        <p className='mb-4 mx-6'>
+                            A fullstack application built with a Next.js frontend, Spring Boot Backend,
+                            deployed on AWS using Terraform, and orchestrated via Docker and GitHub Actions.
+                        </p>
+                        <Link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/JHops881/personal-website"
+                            className="inline-flex border bg-border/35 border-border text-blue-400 px-3 py-3 transition hover:invert rounded-lg mx-6 mb-6"
+                        >
+                            View on GitHub&nbsp;
+                            <Image
+                                src="/external-link.svg"
+                                width={20} height={20}
+                                alt="External Link by krystonschwarze"
+                            />
+                        </Link>
+                    </div>
+
+                    <div className="overflow-hidden bg-card border-border border rounded-lg">
+                        <div className="bg-border/35" >
+                            <h2 className="font-bold text-xl mx-6 py-3 text-subheading">
+                            Jenkins CI/CD Pipeline Optimiztion
+                            </h2>
+                        </div>
+                        <hr className='mb-2 border-border'></hr>
+                        <p className='mb-4 mx-6'>
+                            Optimized Jenkins server performance, streamlined and debugged the main pipeline, and refactored the
+                            cloud deployments to be more robust and scalable.
+                        </p>
+                        <Link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/jhopwood-matc/jenkins-project"
+                            className="inline-flex border bg-border/35 border-border text-blue-400 px-3 py-3 transition hover:invert rounded-lg mx-6 mb-6"
+                        >
+                            View on GitHub&nbsp;
+                            <Image
+                                src="/external-link.svg"
+                                width={20} height={20}
+                                alt="External Link by krystonschwarze"
+                            />
+                        </Link>
+                    </div>
+
+                </div>
+
+                <div className="py-8">
+                    <Link
+                        href="/experience"
+                        className="inline-flex bg-border text-heading px-6 py-3 transition hover:invert rounded-lg"
+                    >
+                        See skills
+                        <Image
+                            src="/right-arrow.svg"
+                            width={16}
+                            height={16}
+                            alt="Right Arrow"
+                            className="ml-2"
+                        />
+                    </Link>
+                </div>
+
             </section>
 
         </main>
