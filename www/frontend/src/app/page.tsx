@@ -160,7 +160,7 @@ export default function Home() {
                     <div className="overflow-hidden bg-card border-border border rounded-lg">
                         <div className="bg-border/35" >
                             <h2 className="font-bold text-xl mx-6 py-3 text-subheading">
-                            Jenkins CI/CD Pipeline Optimiztion
+                            Jenkins CI/CD Pipeline Optimization
                             </h2>
                         </div>
                         <hr className='mb-2 border-border'></hr>
