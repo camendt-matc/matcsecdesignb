@@ -1,10 +1,10 @@
 services:
-  www-frontend:
-    image: jhops881/www-frontend:dev
+  frontend:
+    image: jhops881/frontend:dev
     restart: always
 
-  www-backend:
-    image: jhops881/www-backend:dev
+  backend:
+    image: jhops881/backend:dev
     restart: always
 
   reverse-proxy:
@@ -12,6 +12,6 @@ services:
     ports:
       - 80:80
     depends_on:
-      - www-frontend
-      - www-backend
+      - frontend
+      - backend
     restart: always
