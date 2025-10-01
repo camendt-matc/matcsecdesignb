@@ -1,0 +1,27 @@
+# Use a Node.js image to build the React application
+FROM node:20-alpine AS build
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json (if you have one)
+# This step is important for caching dependencies.
+COPY package.json ./
+COPY package-lock.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of your application code into the container
+COPY . .
+
+# Build the React application for production
+# This command will generate the static files in a 'build' directory (by default for Create React App)
+RUN npm run build
+
+# You can optionally define a final stage if you just want to store the build artifacts.
+# This stage won't run anything, it just defines what the image will contain.
+# If you want to extract the 'build' folder, you can do so after building the image.
+# Example: docker create --name temp-container <image-name>
+#          docker cp temp-container:/app/build ./local-build-output
+#          docker rm temp-container
