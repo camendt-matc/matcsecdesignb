@@ -1,14 +1,20 @@
 services:
   frontend:
-    image: jhops881/frontend:dev
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
     restart: always
 
   backend:
-    image: jhops881/backend:dev
+    build: 
+      context: ./backend
+      dockerfile: dockerfile                                                                
     restart: always
 
   reverse-proxy:
-    image: jhops881/reverse-proxy:dev
+    build: 
+      context: /reverse-proxy
+      dockerfile: dockerfile
     ports:
       - 80:80
     depends_on:
